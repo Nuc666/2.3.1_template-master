@@ -44,8 +44,8 @@ public class UserDaoImp implements UserDao {
         entityManager.persist(currentUser);
     }
 
-    public void deleteUser(User user) {
-        entityManager.remove(user);
+    public void deleteUser(Long id) {
+        entityManager.remove(getUser(id));
     }
 
     public User getUser(Long id) {

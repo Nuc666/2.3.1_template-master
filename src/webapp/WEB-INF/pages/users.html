@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cars</title>
+    <title>Users</title>
 </head>
 <body>
-<h1>Cars</h1>
+<h1>Users</h1>
 
 <table border="1">
     <tr>
         <th>name</th>
-        <th>model</th>
-        <th>number</th>
+        <th>lastName</th>
+        <th>email</th>
     </tr>
 
     <tr th:each="lst : ${users}">
@@ -21,5 +21,39 @@
     </tr>
 
 </table>
+
+<!--<form action="/users" th:action="@{/users}" th:object="${User}" th:method="post">-->
+
+<!--     <label for="name">Name</label>-->
+<!--     <input type="text" th:field="*{firstName}" id="name" />-->
+
+<!--     <label for="lastName">Last name</label>-->
+<!--     <input type="text" th:field="*{lastName}" id="lastName" />-->
+
+<!--     <label for="email">Email</label>-->
+<!--     <input type="text" th:field="*{email}" id="email" />-->
+
+<!--     <input type="submit" value="Submit" />-->
+<!--</form>-->
+
+<form action="/users" method="post" th:object="${user}">
+    <label for="firstName">Name</label>
+    <input type="text" name="firstName" id="firstName">
+
+    <label for="lastName">Last name</label>
+    <input type="text" name="lastName" id="lastName">
+
+    <label for="email">E-mail</label>
+    <input type="text" name="email" id="email">
+
+    <input type="submit" value="Add user">
+</form>
+
+<form th:action="@{/users/{id}(id=${user.getId()})}" method="delete" >
+
+    <input type="submit" value="Delete">
+
+</form>
+
 </body>
 </html>
