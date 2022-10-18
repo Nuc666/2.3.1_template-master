@@ -28,10 +28,15 @@ public class UsersController {
         return "redirect:/users";
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable("id") Long id) {
+    @RequestMapping(value = "/delete/{id}")
+    private String deleteUser(@PathVariable(name = "id") Long id){
         service.deleteUser(id);
         return "redirect:/users";
     }
+//    @DeleteMapping("/{id}")
+//    public String deleteUser(@PathVariable("id") Long id) {
+//        service.deleteUser(id);
+//        return "redirect:/users";
+    }
 
-}
+

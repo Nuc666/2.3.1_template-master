@@ -12,29 +12,21 @@
         <th>name</th>
         <th>lastName</th>
         <th>email</th>
+        <th>delete?</th>
     </tr>
 
     <tr th:each="lst : ${users}">
         <td th:utext="${lst.firstName}">name</td>
         <td th:utext="${lst.lastName}">model</td>
-        <td th:utext="${lst.email}">number</td>
+        <td th:utext="${lst.email}">email</td>
+        <td>
+            <a th:href="@{delete/__${lst.id}__}" class="btn btn-danger">Delete</a>
+        </td>
     </tr>
 
 </table>
 
-<!--<form action="/users" th:action="@{/users}" th:object="${User}" th:method="post">-->
 
-<!--     <label for="name">Name</label>-->
-<!--     <input type="text" th:field="*{firstName}" id="name" />-->
-
-<!--     <label for="lastName">Last name</label>-->
-<!--     <input type="text" th:field="*{lastName}" id="lastName" />-->
-
-<!--     <label for="email">Email</label>-->
-<!--     <input type="text" th:field="*{email}" id="email" />-->
-
-<!--     <input type="submit" value="Submit" />-->
-<!--</form>-->
 
 <form action="/users" method="post" th:object="${user}">
     <label for="firstName">Name</label>
@@ -47,12 +39,6 @@
     <input type="text" name="email" id="email">
 
     <input type="submit" value="Add user">
-</form>
-
-<form th:action="@{/users/{id}(id=${user.getId()})}" method="delete" >
-
-    <input type="submit" value="Delete">
-
 </form>
 
 </body>
