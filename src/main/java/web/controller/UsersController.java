@@ -34,7 +34,11 @@ public class UsersController {
         return "redirect:/users";
     }
 
-
+    @GetMapping("/test")
+    public void testGetUser(){
+        User user = service.getUser(1L);
+        System.out.println(user.getEmail());
+    }
 
 }
 
