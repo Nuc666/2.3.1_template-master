@@ -20,7 +20,10 @@
         <td th:utext="${lst.lastName}">model</td>
         <td th:utext="${lst.email}">email</td>
         <td>
-            <a th:href="@{delete/__${lst.id}__}" class="btn btn-danger">Delete</a>
+<!--            <a th:href="@{users/__${lst.id}__}" class="btn btn-danger">Delete</a>-->
+            <form th:method="DELETE" th:action="@{users/__${lst.id}__}">
+                <input type="submit" value="Delete"/>
+            </form>
         </td>
     </tr>
 
@@ -40,6 +43,8 @@
 
     <input type="submit" value="Add user">
 </form>
+
+
 
 </body>
 </html>
