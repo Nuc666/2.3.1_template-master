@@ -40,6 +40,12 @@ public class UsersController {
         System.out.println(user.getEmail());
     }
 
+    @PatchMapping("/{id}")
+    public String editUser(@PathVariable("id")Long id, User user){
+        service.editUser(user, id);
+        return "redirect:/users";
+    }
+
 }
 
 
